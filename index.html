@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>WOOD & CRAFT — Handcrafted Furniture</title>
+  <meta name="description" content="Bespoke solid wood furniture. Tables, wardrobes, beds — each piece unique. 15 years of master craftsmanship." />
+  <meta name="keywords" content="handcrafted furniture, solid wood, bespoke furniture, custom tables, wardrobes" />
+  <meta property="og:title" content="WOOD & CRAFT — Handcrafted Furniture" />
+  <meta property="og:description" content="Bespoke solid wood furniture. Each piece unique. 15 years of craftsmanship." />
+  <meta property="og:image" content="images/logo.png" />
+  <meta property="og:url" content="https://woodcraft.ru" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">WOOD &amp; <span class="accent-gold">CRAFT</span></div>
+      <div class="progress-track"><div id="progress-bar"></div></div>
+      <div class="loader-text">Loading...</div>
+    </div>
+  </div>
+  <canvas id="gl-canvas"></canvas>
+  <canvas id="particle-canvas"></canvas>
+  <div class="grain-overlay"></div>
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <img src="images/logo.png" alt="WOOD &amp; CRAFT" onerror="this.style.display='none'" />
+        <span>WOOD &amp; <span class="accent-gold">CRAFT</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#process" class="nav-link">Process</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-drawer" id="nav-drawer" hidden>
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    <div class="drawer-panel">
+      <button class="drawer-close" id="drawer-close">✕</button>
+      <ul>
+        <li><a href="#services" class="drawer-link">Services</a></li>
+        <li><a href="#portfolio" class="drawer-link">Portfolio</a></li>
+        <li><a href="#process" class="drawer-link">Process</a></li>
+        <li><a href="#about" class="drawer-link">About</a></li>
+        <li><a href="#contact" class="drawer-link">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="ui-layer"><div class="stage">
+    <section class="page is-active" data-index="0" id="hero">
+      <div class="hero-content">
+        <div class="hero-badge reveal-3d">EST. 2009</div>
+        <h1 class="hero-title reveal-3d">WOOD &amp;<br/><span class="accent-gold">CRAFT</span></h1>
+        <p class="hero-subtitle reveal-3d">Furniture born from wood</p>
+        <p class="hero-desc reveal-3d">Bespoke solid wood furniture — tables, wardrobes, beds.<br/>Every piece is one of a kind.</p>
+        <div class="hero-btns reveal-3d">
+          <a href="#portfolio" class="btn-primary">View Our Work</a>
+          <a href="#contact" class="btn-outline">Contact Us</a>
+        </div>
+        <div class="hero-facts reveal-3d">
+          <div class="fact-item"><span class="fact-num">15</span><span class="fact-label">years</span></div>
+          <div class="fact-item"><span class="fact-num">800+</span><span class="fact-label">projects</span></div>
+          <div class="fact-item"><span class="fact-num">3 yr</span><span class="fact-label">warranty</span></div>
+        </div>
+      </div>
+      <div class="scroll-hint reveal-3d"><span>↓</span></div>
+    </section>
+    <section class="page" data-index="1" id="services">
+      <div class="section-content">
+        <div class="section-header reveal-3d">
+          <h2 class="section-title">OUR SERVICES</h2>
+          <p class="section-subtitle">Full production cycle</p>
+        </div>
+        <div class="cards-grid reveal-3d">
+          <div class="card"><div class="card-icon">🪑</div><h3 class="card-title">Case Furniture</h3><p class="card-text">Kitchens, wardrobes, shelving units from solid wood</p></div>
+          <div class="card"><div class="card-icon">🛏️</div><h3 class="card-title">Beds &amp; Bedrooms</h3><p class="card-text">Custom beds with integrated storage solutions</p></div>
+          <div class="card"><div class="card-icon">🚪</div><h3 class="card-title">Doors &amp; Partitions</h3><p class="card-text">Interior doors and wooden room partitions</p></div>
+          <div class="card"><div class="card-icon">🔧</div><h3 class="card-title">Restoration</h3><p class="card-text">Antique and vintage furniture restoration</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="page" data-index="2" id="portfolio">
+      <div class="section-content">
+        <div class="section-header reveal-3d">
+          <h2 class="section-title">OUR WORK</h2>
+          <p class="section-subtitle">Selected projects</p>
+        </div>
+        <div class="cards-grid reveal-3d">
+          <div class="card"><div class="card-icon">🪵</div><h3 class="card-title">Slab Dining Table</h3><p class="card-text">Greek marble slab, 3m length</p></div>
+          <div class="card"><div class="card-icon">🌸</div><h3 class="card-title">Bedroom Suite</h3><p class="card-text">White oak, Japanese minimalist style</p></div>
+          <div class="card"><div class="card-icon">🍳</div><h3 class="card-title">Kitchen Island</h3><p class="card-text">Ash wood + matte black metal frame</p></div>
+          <div class="card"><div class="card-icon">📚</div><h3 class="card-title">Library Wall</h3><p class="card-text">Solid oak with hand-carved detail</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="page" data-index="3" id="process">
+      <div class="section-content">
+        <div class="section-header reveal-3d"><h2 class="section-title">HOW WE WORK</h2></div>
+        <div class="process-steps reveal-3d">
+          <div class="step"><div class="step-num">01</div><div class="step-icon">📐</div><h3 class="step-title">Design</h3><p class="step-text">3D visualisation of your future piece</p></div>
+          <div class="step-arrow">→</div>
+          <div class="step"><div class="step-num">02</div><div class="step-icon">🌲</div><h3 class="step-title">Material</h3><p class="step-text">Graded timber, kiln-dried, sorted by grain</p></div>
+          <div class="step-arrow">→</div>
+          <div class="step"><div class="step-num">03</div><div class="step-icon">⚙️</div><h3 class="step-title">Production</h3><p class="step-text">Master craftsmen in our own workshop</p></div>
+          <div class="step-arrow">→</div>
+          <div class="step"><div class="step-num">04</div><div class="step-icon">🚛</div><h3 class="step-title">Installation</h3><p class="step-text">White-glove delivery and install, 3-year warranty</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="page" data-index="4" id="about">
+      <div class="section-content">
+        <div class="section-header reveal-3d">
+          <h2 class="section-title">THE WORKSHOP</h2>
+          <p class="section-subtitle">15 years crafting unique pieces</p>
+        </div>
+        <div class="about-layout reveal-3d">
+          <div class="about-text">
+            <p>We don't produce series furniture. Each piece is a unique project, born from dialogue with the client and deep respect for the material.</p>
+            <p>Solid wood only. No MDF, no veneers. Every joint is hand-fitted. Every surface is hand-finished.</p>
+            <div class="about-stats">
+              <div class="stat"><span class="stat-num accent-gold">15</span><span class="stat-label">years</span></div>
+              <div class="stat"><span class="stat-num accent-gold">800+</span><span class="stat-label">projects</span></div>
+              <div class="stat"><span class="stat-num accent-gold">3 yr</span><span class="stat-label">warranty</span></div>
+              <div class="stat"><span class="stat-num accent-gold">100%</span><span class="stat-label">solid wood</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="page" data-index="5" id="contact">
+      <div class="section-content">
+        <div class="section-header reveal-3d">
+          <h2 class="section-title">CONTACT US</h2>
+          <p class="section-subtitle">Ready to discuss your project</p>
+        </div>
+        <div class="contact-layout reveal-3d">
+          <div class="contact-info">
+            <div class="contact-item"><span class="contact-icon">📞</span><a href="tel:+79991234567">+7 (999) 123-45-67</a></div>
+            <div class="contact-item"><span class="contact-icon">✉️</span><a href="mailto:hello@woodcraft.ru">hello@woodcraft.ru</a></div>
+            <div class="contact-item"><span class="contact-icon">📍</span><span>Moscow, Masterskaya St., 12</span></div>
+            <div class="contact-item"><span class="contact-icon">🕐</span><span>Mon–Fri: 9:00–19:00</span></div>
+          </div>
+          <form class="contact-form" id="contact-form">
+            <input type="text" placeholder="Your name" required />
+            <input type="tel" placeholder="Phone number" required />
+            <input type="email" placeholder="Email address" />
+            <textarea placeholder="Describe your project..." rows="3"></textarea>
+            <button type="submit" class="btn-primary" id="submit-btn">Send Request</button>
+          </form>
+        </div>
+        <footer class="site-footer"><p>© 2024 WOOD &amp; CRAFT. All rights reserved.</p></footer>
+      </div>
+    </section>
+  </div></div>
+  <script src="app.js"></script>
+</body>
+</html>
