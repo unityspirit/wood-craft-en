@@ -16,25 +16,17 @@
 
   /* 8-direction black text-shadow */
   --ts-dark:
-   -1px -1px 0 #000,
-    1px -1px 0 #000,
-   -1px  1px 0 #000,
-    1px  1px 0 #000,
-    0   -1px 0 #000,
-    0    1px 0 #000,
-   -1px  0   0 #000,
-    1px  0   0 #000;
+    1px  1px 0 rgba(0,0,0,1),
+   -1px -1px 0 rgba(0,0,0,1),
+    1px -1px 0 rgba(0,0,0,1),
+   -1px  1px 0 rgba(0,0,0,1),
+    0    0   8px rgba(0,0,0,0.9),
+    0    0  20px rgba(0,0,0,0.7);
 
   /* Soft glow for labels */
   --ts-soft:
-   -1px -1px 0 #000,
-    1px -1px 0 #000,
-   -1px  1px 0 #000,
-    1px  1px 0 #000,
-    0   -1px 0 #000,
-    0    1px 0 #000,
-   -1px  0   0 #000,
-    1px  0   0 #000;
+    0 0 6px rgba(0,0,0,0.8),
+    0 0 12px rgba(0,0,0,0.6);
 
   --font-h: 'Cormorant Garamond', Georgia, serif;
   --font-t: 'Raleway', sans-serif;
@@ -111,20 +103,22 @@ button { cursor: pointer; font-family: var(--font-t); border: none; background: 
   gap: 24px;
   text-align: center;
 }
+.loader-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 0 20px rgba(201,169,110,0.4));
+  animation: logoPulse 2s ease-in-out infinite;
+}
+@keyframes logoPulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
 .loader-brand {
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-.loader-logo-img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  animation: logoPulse 2s ease-in-out infinite;
-}
-@keyframes logoPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.06); }
 }
 .loader-logo-text {
   font-family: var(--font-h);
@@ -195,12 +189,11 @@ button { cursor: pointer; font-family: var(--font-t); border: none; background: 
   gap: 10px;
   flex-shrink: 0;
 }
-.nav-logo-img,
-.nav-logo img,
-.logo-img {
-  width: 36px;
-  height: 36px;
+.nav-logo-img {
+  width: 32px;
+  height: 32px;
   object-fit: contain;
+  mix-blend-mode: screen;
 }
 .nav-logo-text {
   font-family: var(--font-h);
@@ -356,7 +349,7 @@ button { cursor: pointer; font-family: var(--font-t); border: none; background: 
 .drawer-footer p {
   font-family: var(--font-t);
   font-size: 13px;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.85);
   letter-spacing: 0.04em;
 }
 
@@ -766,6 +759,7 @@ button { cursor: pointer; font-family: var(--font-t); border: none; background: 
   opacity: 1;
   line-height: 1;
   letter-spacing: -0.02em;
+  text-shadow: var(--ts-dark);
 }
 .step-icon-wrap {
   font-size: clamp(24px, 3vw, 32px);
@@ -862,6 +856,7 @@ button { cursor: pointer; font-family: var(--font-t); border: none; background: 
   font-size: clamp(11px, 1.2vw, 12px);
   color: rgba(255,255,255,0.85);
   margin-top: 4px;
+  text-shadow: var(--ts-soft);
 }
 
 /* ── CONTACT ── */
@@ -1005,7 +1000,7 @@ a.contact-value:hover { color: var(--gold); }
 .footer-copy {
   font-family: var(--font-t);
   font-size: clamp(10px, 1.2vw, 12px);
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.7);
   margin-top: 8px;
 }
 
