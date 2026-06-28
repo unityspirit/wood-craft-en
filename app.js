@@ -80,8 +80,6 @@ let loadedCount = 0;
 let isReady     = false;
 let preloaderDismissed = false;
 const PRELOADER_THRESHOLD = 15;
-let preloaderDismissed = false;
-const PRELOADER_THRESHOLD = 15;
 
 function frameName(i) {
   return `${FRAME_DIR}/frame_${String(i + 1).padStart(6, '0')}.webp`;
