@@ -1,4 +1,4 @@
-﻿// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+﻿﻿// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  WOOD & CRAFT â€” app.js
 //  Cinematic Scroll Engine v2
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
@@ -95,31 +95,49 @@ async function loadAll() {
       const i = queue.shift();
       await new Promise(resolve => {
         const img = new Image();
-        img.onload = img.onerror = () => {
+                img.onload = img.onerror = () => {
           frames[i] = img;
           loadedCount++;
-          if (loadedCount === 1) { isReady = true; startAnim(); }
+          if (loadedCount === 1) { isReady = true; if (typeof startAnim === "function") startAnim(); }
           const realPct = Math.round((loadedCount / TOTAL_FRAMES) * 100);
           if (!preloaderDismissed) {
             const visualPct = Math.min(Math.round((realPct / PRELOADER_THRESHOLD) * 100), 100);
-            const bar = document.getElementById('progress-bar');
+            const bar = document.getElementById('progress-bar') || document.getElementById('loader-bar');
+            const pctEl = document.getElementById('loader-pct');
             if (bar) bar.style.width = visualPct + '%';
+            if (pctEl) pctEl.textContent = visualPct + '%';
             if (realPct >= PRELOADER_THRESHOLD) {
               preloaderDismissed = true;
               const loader = document.getElementById('loader');
-              if (loader) { loader.style.transition = 'opacity 0.8s'; loader.style.opacity = '0'; setTimeout(() => loader.style.display = 'none', 800); }
+              if (loader) { 
+                loader.style.transition = 'opacity 0.8s'; 
+                loader.style.opacity = '0'; 
+                setTimeout(() => { loader.style.display = 'none'; }, 800); 
+              }
+              const slb = document.getElementById('siteLoadingBar');
+              if (slb) {
+                slb.style.opacity = '1';
+                slb.style.visibility = 'visible';
+                slb.innerHTML = '<div class="slb-track"><div class="slb-fill" id="slbFill"></div></div><span class="slb-text" id="siteLoadingText">Loading video 0%</span>';
+              }
             }
           } else {
             const slb = document.getElementById('slbFill');
             const txt = document.getElementById('siteLoadingText');
-            if (slb) slb.style.width = realPct + '%';
+            const phase2Pct = Math.round(((realPct - PRELOADER_THRESHOLD) / (100 - PRELOADER_THRESHOLD)) * 100);
+            if (slb) slb.style.width = phase2Pct + '%';
             if (txt) txt.textContent = 'Loading video ' + realPct + '%';
             if (realPct >= 100) {
               const sbar = document.getElementById('siteLoadingBar');
               if (txt) txt.textContent = 'Loading complete';
-              if (sbar) { sbar.classList.add('done'); setTimeout(() => sbar.remove(), 800); }
+              if (sbar) {
+                sbar.style.opacity = '0';
+                sbar.style.visibility = 'hidden';
+                setTimeout(() => sbar.remove(), 800);
+              }
             }
           }
+          resolve();
         };
         img.src = frameName(i);
       });
