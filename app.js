@@ -108,6 +108,9 @@ async function loadAll() {
             if (pctEl) pctEl.textContent = visualPct + '%';
             if (realPct >= PRELOADER_THRESHOLD) {
               preloaderDismissed = true;
+              isReady = true;
+              drawFrame(0);
+              if (typeof pages !== 'undefined' && pages[0]) pages[0].classList.add('is-active');
               const loader = document.getElementById('loader');
               if (loader) { 
                 loader.style.transition = 'opacity 0.8s'; 
