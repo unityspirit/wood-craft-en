@@ -1,4 +1,4 @@
-﻿/* ═══════════════════════════════════════════════════
+﻿﻿/* ═══════════════════════════════════════════════════
    WOOD & CRAFT — styles.css
    Design: Luxury Gold · Cormorant Garamond + Raleway
 ═══════════════════════════════════════════════════ */
@@ -1051,7 +1051,7 @@ a.contact-value:hover { color: var(--gold); }
 }
 
 /* === SITE LOADING BAR (deferred) === */
-#siteLoadingBar{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;z-index:8888;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);padding:7px 22px;border-radius:30px;font-size:13px;color:rgba(255,255,255,.7);opacity:1;transition:opacity .6s}
+$10;visibility:hidden;transition:opacity .6s,visibility .6s;transition:opacity .6s}
 #siteLoadingBar.done{opacity:0;pointer-events:none}
 .slb-track{width:120px;height:4px;background:rgba(255,255,255,.15);border-radius:4px;overflow:hidden}
 .slb-fill{height:100%;width:0%;background:var(--gold, var(--accent, #c9a84c));border-radius:4px;transition:width .3s}
